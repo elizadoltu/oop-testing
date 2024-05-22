@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <vector>
 #include "quicksort.h"
+#include "bubblesort.h"
 
 TEST(SwapTest, BasicTest) {
     int a = 5;
@@ -36,6 +37,41 @@ TEST(QuickSortTest, Unsorted) {
     std::vector<int> arr = {10, 7, 8, 9, 1, 5};
     quickSort(arr, 0, static_cast<int>(arr.size()) - 1);
     std::vector<int> expected = {1, 5, 7, 8, 9, 10};
+    EXPECT_EQ(arr, expected);
+}
+
+TEST(BubbleSortTest, BasicTest) {
+    std::vector<int> arr = { 5, 3, 8, 4, 2 };
+    bubbleSort(arr);
+    std::vector<int> expected = { 2, 3, 4, 5, 8 };
+    EXPECT_EQ(arr, expected);
+}
+
+TEST(BubbleSortTest, AlreadySorted) {
+    std::vector<int> arr = { 1, 2, 3, 4, 5 };
+    bubbleSort(arr);
+    std::vector<int> expected = { 1, 2, 3, 4, 5 };
+    EXPECT_EQ(arr, expected);
+}
+
+TEST(BubbleSortTest, ReverseSorted) {
+    std::vector<int> arr = { 5, 4, 3, 2, 1 };
+    bubbleSort(arr);
+    std::vector<int> expected = { 1, 2, 3, 4, 5 };
+    EXPECT_EQ(arr, expected);
+}
+
+TEST(BubbleSortTest, SingleElement) {
+    std::vector<int> arr = { 1 };
+    bubbleSort(arr);
+    std::vector<int> expected = { 1 };
+    EXPECT_EQ(arr, expected);
+}
+
+TEST(BubbleSortTest, EmptyArray) {
+    std::vector<int> arr;
+    bubbleSort(arr);
+    std::vector<int> expected;
     EXPECT_EQ(arr, expected);
 }
 

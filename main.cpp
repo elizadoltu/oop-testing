@@ -6,6 +6,7 @@
 int main() {
     std::vector<int> arr1 = {10, 7, 8, 9, 1, 5};
     std::vector<int> arr2 = {10, 9, 8, 7, 6, 5};
+    std::vector<int> arr3 = { 10, 9, 8, 7, 6, 5 };
     int n = static_cast<int>(arr1.size());
     
     bubbleSort(arr1);
@@ -22,5 +23,11 @@ int main() {
     }
     std::cout << std::endl;
     
+    mergeSort(arr3, 0, n - 1);
+    std::cout << "Sorted array3 (Merge Sort): ";
+    for (const auto& el : arr3) {
+        std::cout << el << " ";
+    }
+    std::cout << std::endl;
     return 0;
 }
