@@ -2,7 +2,10 @@
 #include <vector>
 #include "bubblesort.h"
 #include "quicksort.h"
-
+#include "mergesort.h"
+//bubble sort - Doltu Eliza-Teodora
+//quick sort - Oprea Danut-Constantin
+//merge sort - Panaite Alexandra
 int main() {
     std::vector<int> arr1 = {10, 7, 8, 9, 1, 5};
     std::vector<int> arr2 = {10, 9, 8, 7, 6, 5};

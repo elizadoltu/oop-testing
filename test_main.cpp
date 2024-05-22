@@ -1,7 +1,8 @@
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 #include <vector>
 #include "quicksort.h"
 #include "bubblesort.h"
+#include "mergesort.h"
 
 TEST(SwapTest, BasicTest) {
     int a = 5;
@@ -21,7 +22,7 @@ TEST(PartitionTest, BasicTest) {
 
 TEST(QuickSortTest, AlreadySorted) {
     std::vector<int> arr = {1, 2, 3, 4, 5, 6};
-    quickSort(arr, 0, static_cast<int>(arr.size()) - 1);
+    quickSort(arr, 0, static_cast<int>(arr.size()) - 1);S
     std::vector<int> expected = {1, 2, 3, 4, 5, 6};
     EXPECT_EQ(arr, expected);
 }
@@ -71,6 +72,42 @@ TEST(BubbleSortTest, SingleElement) {
 TEST(BubbleSortTest, EmptyArray) {
     std::vector<int> arr;
     bubbleSort(arr);
+    std::vector<int> expected;
+    EXPECT_EQ(arr, expected);
+}
+
+
+TEST(MergeSortTest, AlreadySorted) {
+    std::vector<int> arr = {1, 2, 3, 4, 5, 6};
+    mergeSort(arr, 0, static_cast<int>(arr.size()) - 1);
+    std::vector<int> expected = {1, 2, 3, 4, 5, 6};
+    EXPECT_EQ(arr, expected);
+}
+
+TEST(MergeSortTest, ReverseSorted) {
+    std::vector<int> arr = {6, 5, 4, 3, 2, 1};
+    mergeSort(arr, 0, static_cast<int>(arr.size()) - 1);
+    std::vector<int> expected = {1, 2, 3, 4, 5, 6};
+    EXPECT_EQ(arr, expected);
+}
+
+TEST(MergeSortTest, Unsorted) {
+    std::vector<int> arr = {10, 7, 8, 9, 1, 5};
+    mergeSort(arr, 0, static_cast<int>(arr.size()) - 1);
+    std::vector<int> expected = {1, 5, 7, 8, 9, 10};
+    EXPECT_EQ(arr, expected);
+}
+
+TEST(MergeSortTest, SingleElement) {
+    std::vector<int> arr = {1};
+    mergeSort(arr, 0, static_cast<int>(arr.size()) - 1);
+    std::vector<int> expected = {1};
+    EXPECT_EQ(arr, expected);
+}
+
+TEST(MergeSortTest, EmptyArray) {
+    std::vector<int> arr;
+    mergeSort(arr, 0, static_cast<int>(arr.size()) - 1);
     std::vector<int> expected;
     EXPECT_EQ(arr, expected);
 }
